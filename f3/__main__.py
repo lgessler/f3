@@ -15,7 +15,7 @@ except ImportError:
     time.sleep(1)
 
 SUPPORTED_ENCODINGS = ['windows-1252', 'ISO-8859-1', 'ascii',
-                       'UTF-8', 'UTF-16', 'UTF-32']
+                       'utf-8', 'utf-16', 'utf-32']
 
 
 def _detect_encoding(source_path):
