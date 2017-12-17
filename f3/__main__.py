@@ -57,19 +57,20 @@ def _choose_encoding(source_path):
 
 def _transcode(raw_data, encoding):
     '''See: https://docs.python.org/3/library/codecs.html#standard-encodings '''
+    encoding = encoding.lower()
     if encoding == 'ascii':
         return raw_data.decode('ascii').encode('utf-8')
 
     if encoding == 'windows-1252':
         return raw_data.decode('windows-1252').encode('utf-8')
 
-    if encoding == 'ISO-8859-1':
+    if encoding == 'iso-8859-1':
         return raw_data.decode('iso-8859-1').encode('utf-8')
 
-    if encoding == 'UTF-16':
+    if encoding == 'utf-16':
         return raw_data.decode('utf-16').encode('utf-8')
 
-    if encoding == 'UTF-32':
+    if encoding == 'utf-32':
         return raw_data.decode('utf-32').encode('utf-8')
 
     return raw_data
