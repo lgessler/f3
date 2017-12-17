@@ -14,4 +14,10 @@ setuptools.setup(name='f3',
                  license='MIT License',
                  zip_safe=False,
                  keywords='word frequency',
-                 classifiers=[])
+                 classifiers=[],
+                 entry_points={
+                     'console_scripts':{
+                         'f3 = f3.__main__:main'
+                     }
+                 },
+                 packages=setuptools.find_packages())
