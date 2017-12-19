@@ -39,5 +39,5 @@ python3 setup.py develop
 This should have installed `f3` to `/usr/local/bin`. You should now be able to use it from the command line:
 
 ```
-f3 [-ih] source dest
+f3 -h
 ```

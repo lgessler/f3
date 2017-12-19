@@ -62,20 +62,21 @@ def _choose_encoding(source_path):
 
 
 def decode(raw_data, encoding):
-    'See: https://docs.python.org/3/library/codecs.html#standard-encodings '
+    '''See: https://docs.python.org/3/library/codecs.html#standard-encodings '''
+    encoding = encoding.lower()
     if encoding == 'ascii':
         return raw_data.decode('ascii')
 
     if encoding == 'windows-1252':
         return raw_data.decode('windows-1252')
 
-    if encoding == 'ISO-8859-1':
+    if encoding == 'iso-8859-1':
         return raw_data.decode('iso-8859-1')
 
-    if encoding == 'UTF-16':
+    if encoding == 'utf-16':
         return raw_data.decode('utf-16')
 
-    if encoding == 'UTF-32':
+    if encoding == 'utf-32':
         return raw_data.decode('utf-32')
 
     return raw_data.decode('utf-8')
