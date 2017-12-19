@@ -3,11 +3,10 @@ import re
 
 
 class RegexCounter(object):
-    def tokenize_and_count(self, data, ignore_case):
+    def tokenize_and_count(self, decoded_data, ignore_case):
         freqs = defaultdict(int)
-        s = data.decode('utf-8')
         pattern = r'\w+'
-        for word in re.findall(pattern, s):
+        for word in re.findall(pattern, decoded_data):
             if ignore_case:
                 word = word.lower()
             freqs[word] += 1
