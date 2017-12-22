@@ -1,2 +1,4 @@
 chardet
 langid
+pyenchant
+beautifulsoup4
