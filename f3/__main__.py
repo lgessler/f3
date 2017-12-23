@@ -124,14 +124,10 @@ def main():
     parser.add_argument('-f', '--filter-junk',
                         action='store_true',
                         default=False,
-                        help='Assume that the input document '
-                             'is interspersed with annotations in '
-                             'a different language, and identify words '
-                             'that seem like they belong to annotations. '
-                             'Be sure to set the target_lang param to the '
-                             'ISO 639-1 for the language the corpus is in. '
-                             '(Make sure the ISO 639-1 is listed here: '
-                             'https://github.com/saffsd/langid.py )')
+                        help='Assume that the input text is interspersed'
+                             'with HTML and English. Attempt to parse out'
+                             'the HTML, and print out a separate list of'
+                             'all suspected non-target language words')
 
     args = parser.parse_args()
 
