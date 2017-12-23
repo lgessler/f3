@@ -90,7 +90,7 @@ def _find_freqs(source_path, args):
     decoded_data = decode(raw_data, encoding)
 
     if args.filter_junk:
-        counter = FilterCounter(args.target_lang, args.junk_lang)
+        counter = FilterCounter()
     else:
         counter = RegexCounter()
 
@@ -132,11 +132,6 @@ def main():
                              'ISO 639-1 for the language the corpus is in. '
                              '(Make sure the ISO 639-1 is listed here: '
                              'https://github.com/saffsd/langid.py )')
-
-    parser.add_argument('-t', '--target-lang',
-                        help='ISO 639-1 for the language of the corpus')
-    parser.add_argument('-j', '--junk-lang',
-                        help='ISO 639-1 for the corpus\'s secondary language')
 
     args = parser.parse_args()
 
