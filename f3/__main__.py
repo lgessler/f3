@@ -101,14 +101,22 @@ def _find_freqs(source_path, args):
             sorted(filtered_freqs.items(), key=lambda x: x[1], reverse=True))
 
 
-def _write_freqs(freqs, filtered_freqs, dest_path):
+def _write_freqs(freqs, dest_path):
+    with open(dest_path, 'w', encoding='utf-8') as outfile:
+        for word, freq in freqs:
+            outfile.write('{0}\t{1}\n'.format(word, freq))
+    print('Wrote to {0} successfully'.format(dest_path))
+
+
+def _write_freqs_and_filtered_freqs(freqs, filtered_freqs, dest_path):
     with open(dest_path, 'w', encoding='utf-8') as outfile:
         for word, freq in freqs:
             outfile.write('{0}\t{1}\n'.format(word, freq))
     with open(dest_path + '.filtered', 'w', encoding='utf-8') as outfile:
         for word, freq in filtered_freqs:
             outfile.write('{0}\t{1}\n'.format(word, freq))
-    print('Wrote to {0} successfully'.format(dest_path))
+    print('Wrote to {0} and {1} successfully'
+          .format(dest_path, dest_path + '.filtered'))
 
 
 def main():
@@ -140,8 +148,10 @@ def main():
         exit(1)
 
     freqs, filtered_freqs = _find_freqs(source_path, args)
-    _write_freqs(freqs, filtered_freqs, dest_path)
-
+    if args.filter_junk:
+        _write_freqs_and_filtered_freqs(freqs, filtered_freqs, dest_path)
+    else:
+        _write_freqs(freqs, dest_path)
 
 if __name__ == '__main__':
     main()
